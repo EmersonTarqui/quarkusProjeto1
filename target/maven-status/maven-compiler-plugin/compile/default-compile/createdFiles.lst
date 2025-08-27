@@ -1,0 +1,4 @@
+org\acme\GreetingResource.class
+org\acme\MyEntity.class
+org\acme\Book.class
+org\acme\BookResource.class
