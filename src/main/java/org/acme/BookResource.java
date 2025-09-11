@@ -5,10 +5,7 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 
-import java.util.ArrayList;
 import java.util.Set;
-
-import static org.glassfish.jaxb.runtime.v2.schemagen.Util.equalsIgnoreCase;
 
 @Path("/books")
 public class BookResource {
@@ -54,6 +51,15 @@ public class BookResource {
                 "%" + q.toLowerCase() + "%"));
 
         var books = query.page(effectivePage, size).list();
+
+        var response = new SearchBookResponse();
+        response.Books = books;
+        response.TotalBooks = query.list().size();
+        response.TotalPages = query.pageCount();
+        response.HasMore= query.pageCount() > page;
+        response.NextPage=response.HasMore ?
+                "http://localhost:8080/books/search?q=" + q + "&page=" + (page + 1 ) : "";
+
         return Response.ok(books).build();
     }
 
