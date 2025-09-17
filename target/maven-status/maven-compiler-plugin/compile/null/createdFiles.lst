@@ -1,0 +1,4 @@
+org\acme\SearchRecipeResponse.class
+org\acme\RecipeResource.class
+org\acme\SearchBookResponse.class
+org\acme\Recipe.class
