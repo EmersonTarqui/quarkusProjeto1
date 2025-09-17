@@ -12,3 +12,5 @@ insert into book (id, titulo, autor, editora, anoLancamento, estaDisponivel) val
 insert into book (id, titulo, autor, editora, anoLancamento, estaDisponivel) values(3, 'Eu Robo', 'Azik Azimov', 'Editora Saraiva', 1930, true);
 
 insert into book (id, titulo, autor, editora, anoLancamento, estaDisponivel) values(4, 'O Mundo de Sofia', 'Jostein Gaarder', 'Editora Saraiva', 1899, true);
+
+insert into recipe (id, nome , categoria, ingredientes, modoPreparo, origem) values (1, 'PratoTeste', 'CategoriaTeste', 'ingredientes','passo passo2','Bolivia');

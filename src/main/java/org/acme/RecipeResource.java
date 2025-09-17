@@ -12,7 +12,7 @@ public class RecipeResource {
 
     @GET
     public Response getAll() {
-        return Response.ok(Book.listAll()).build();
+        return Response.ok(Recipe.listAll()).build();
     }
 
     @GET
@@ -33,7 +33,7 @@ public class RecipeResource {
             @QueryParam("page") @DefaultValue("0") int page,
             @QueryParam("size") @DefaultValue("10") int size
     ) {
-        Set<String> allowed = Set.of("id", "nome", "categoria", "ingredientes", "instrucoes","origem");
+        Set<String> allowed = Set.of("id", "nome", "categoria", "ingredientes", "modoPreparo","origem");
         if (!allowed.contains(sort))
             sort = "id";
 
@@ -86,7 +86,7 @@ public class RecipeResource {
         entity.nome = newRecipe.nome;
         entity.categoria = newRecipe.categoria;
         entity.ingredientes = newRecipe.ingredientes;
-        entity.instrucoes = newRecipe.instrucoes;
+        entity.modoPreparo = newRecipe.modoPreparo;
         entity.origem = newRecipe.origem;
 
         return Response.status(200).entity(entity).build();
